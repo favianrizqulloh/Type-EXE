@@ -2,7 +2,7 @@
 // 1. DATA & CONFIGURATION
 // ==========================================
 const commonWords = [
-    "yang","adalah","dari","dan","sebuah","untuk","di","ia","memiliki","itu","bahwa","mereka","saya","dengan","sebagai","tidak","pada","oleh","ini","kami","Anda","melakukan","tetapi","atau","lain","akan","ada","kata","waktu","lebih","jika","tidak","orang","keluar","lainnya","jadi","apa","hari","sekarang","mungkin","seperti","melihat","menggunakan","mendapat","suka","kemudian","pertama","apa saja","bekerja","harus","mencari","lama","banyak","harusnya","lihat","sebelum","besar","kembali","melalui","panjang","di mana","sangat","masih","tinggi","tempat","kecil","dunia","baik","setiap","merasa","tampak","bagaimana","tinggi","terlalu","hidup","beri","akhir","rumah","antara","membutuhkan","berarti","panggil","kembangkan","di bawah","terakhir","kanan","jalan","menemukan","hari","juga","setelah","cara","banyak","harusnya","orang-orang","turun","milik","hanya","karena","baik","setiap","mereka","rasakan","tampak"
+    "yang","adalah","dari","dan","sebuah","untuk","di","ia","memiliki","itu","bahwa","mereka","saya","dengan","sebagai","tidak","pada","oleh","ini","kami","Anda","melakukan","tetapi","atau","lain"
 ];
 
 const quotes = [
@@ -27,7 +27,7 @@ let elapsedSeconds = 0;
 let startTime = null;
 
 let wpmHistory = [];
-let chartInstance = null;
+let chartInstance = null; // kept for compatibility, not used with Chart.js-free implementation
 
 let words = [];
 let currentWordIndex = 0;
@@ -324,7 +324,7 @@ function resetTest() {
     wordsContainer.style.transform = 'translateY(0)';
     resultsScreen.classList.add('hidden');
     
-    timerDisplay.textContent = config.mode === 'time' ? `${config.time} detik` : (config.mode === 'quote' ? 'Kutipan — Ketik sampai akhir kutipan' : 'Zen — Mode tanpa batas. Ketik ` untuk menyelesaikan.');
+    timerDisplay.textContent = config.mode === 'time' ? `${config.time} detik` : (config.mode === 'quote' ? 'Kutipan — Ketik sampai akhir kutipan' : 'Zen — Mode tanpa batas. Ketik ` untuk menyelesaikan');
     
     generateWords();
     renderWords();
@@ -337,7 +337,7 @@ function resetTest() {
 }
 
 // ==========================================
-// 6. STATS & CHART RENDERING
+// 6. STATS & CHART RENDERING (Chart.js replaced by small canvas renderer)
 // ==========================================
 function calculateStats() {
     const timeElapsed = Math.max((Date.now() - startTime) / 60000, 0.001);
@@ -359,42 +359,86 @@ function calculateStats() {
     renderChart();
 }
 
+function hexToRgba(hex, alpha) {
+    // support #rgb, #rrggbb
+    let h = hex.replace('#','').trim();
+    if (h.length === 3) {
+        h = h.split('').map(c => c + c).join('');
+    }
+    const r = parseInt(h.substring(0,2),16);
+    const g = parseInt(h.substring(2,4),16);
+    const b = parseInt(h.substring(4,6),16);
+    return `rgba(${r},${g},${b},${alpha})`;
+}
+
 function renderChart() {
-    const ctx = document.getElementById('wpmChart').getContext('2d');
-    if (chartInstance) chartInstance.destroy();
+    const canvas = document.getElementById('wpmChart');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
 
-    const mainColor = getComputedStyle(document.body).getPropertyValue('--main').trim();
-    const subColor = getComputedStyle(document.body).getPropertyValue('--sub').trim();
+    // size canvas to container (support HiDPI)
+    const rect = canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, rect.width, rect.height);
 
-    // Ensure fallback data point if test was under 1 second
-    const chartLabels = wpmHistory.length > 0 ? wpmHistory.map(d => d.time + ' detik') : ['0 detik'];
-    const chartData = wpmHistory.length > 0 ? wpmHistory.map(d => d.wpm) : [0];
+    const mainColor = getComputedStyle(document.body).getPropertyValue('--main').trim() || '#cba6f7';
+    const subColor = getComputedStyle(document.body).getPropertyValue('--sub').trim() || '#6c7086';
 
-    chartInstance = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: chartLabels,
-            datasets: [{
-                label: 'Kecepatan (KPM)',
-                data: chartData,
-                borderColor: mainColor,
-                backgroundColor: mainColor + '20',
-                fill: true,
-                tension: 0.35,
-                pointRadius: 3,
-                pointBackgroundColor: mainColor
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { display: false } },
-            scales: {
-                x: { ticks: { color: subColor, font: { size: 10 } }, grid: { display: false } },
-                y: { ticks: { color: subColor, font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.05)' } }
-            }
-        }
-    });
+    const data = wpmHistory.length > 0 ? wpmHistory.map(d => d.wpm) : [0];
+    const labels = wpmHistory.length > 0 ? wpmHistory.map(d => d.time + ' detik') : ['0 detik'];
+
+    const padding = 8;
+    const width = rect.width - padding * 2;
+    const height = rect.height - padding * 2;
+    const max = Math.max(...data, 1);
+
+    // draw subtle grid
+    ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 4; i++) {
+        const y = padding + (height / 4) * i;
+        ctx.beginPath();
+        ctx.moveTo(padding, y);
+        ctx.lineTo(padding + width, y);
+        ctx.stroke();
+    }
+
+    // draw filled area
+    ctx.beginPath();
+    for (let i = 0; i < data.length; i++) {
+        const x = padding + (data.length === 1 ? width / 2 : (width * (i / (data.length - 1))));
+        const y = padding + height - (data[i] / max) * height;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.lineTo(padding + width, padding + height);
+    ctx.lineTo(padding, padding + height);
+    ctx.closePath();
+    ctx.fillStyle = hexToRgba(mainColor || '#cba6f7', 0.12);
+    ctx.fill();
+
+    // draw polyline
+    ctx.beginPath();
+    for (let i = 0; i < data.length; i++) {
+        const x = padding + (data.length === 1 ? width / 2 : (width * (i / (data.length - 1))));
+        const y = padding + height - (data[i] / max) * height;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = mainColor || '#cba6f7';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // draw points
+    for (let i = 0; i < data.length; i++) {
+        const x = padding + (data.length === 1 ? width / 2 : (width * (i / (data.length - 1))));
+        const y = padding + height - (data[i] / max) * height;
+        ctx.beginPath();
+        ctx.fillStyle = mainColor || '#cba6f7';
+        ctx.arc(x, y, 3, 0, Math.PI * 2);
+        ctx.fill();
+    }
 }
 
 // ==========================================
