@@ -6,10 +6,10 @@ const commonWords = [
 ];
 
 const quotes = [
-    "Satu-satunya cara untuk melakukan pekerjaan hebat adalah mencintai apa yang Anda lakukan.",
-    "Bicara itu murah. Tunjukkan kode Anda.",
-    "Program harus ditulis agar dapat dibaca oleh manusia, dan hanya kebetulan bagi mesin untuk mengeksekusinya.",
-    "Selalu menulis kode seolah-olah orang yang nantinya memelihara kode Anda adalah seorang psikopat keras yang tahu di mana Anda tinggal."
+    "Satu-satunya cara menciptakan karya luar biasa adalah dengan mencintai apa yang Anda lakukan.",
+    "Ucapan mudah — biarkan kualitas kode Anda yang berbicara.",
+    "Program harus ditulis agar mudah dipahami oleh manusia; eksekusi oleh mesin adalah konsekuensinya.",
+    "Tulislah kode sebaik mungkin dengan mempertimbangkan mereka yang akan memelihara proyek di masa mendatang."
 ];
 
 let config = {
@@ -324,7 +324,7 @@ function resetTest() {
     wordsContainer.style.transform = 'translateY(0)';
     resultsScreen.classList.add('hidden');
     
-    timerDisplay.textContent = config.mode === 'time' ? config.time : (config.mode === 'quote' ? 'Kutipan' : 'Zen — Mode tanpa batas. Ketik ` untuk menyelesaikan.');
+    timerDisplay.textContent = config.mode === 'time' ? config.time : (config.mode === 'quote' ? 'Mode Kutipan' : 'Zen — Mode tanpa batas. Ketik ` untuk menyelesaikan.');
     
     generateWords();
     renderWords();
