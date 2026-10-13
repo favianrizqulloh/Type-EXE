@@ -1,59 +1,59 @@
-[![Developed & Maintained by CaptainEXE](https://img.shields.io/badge/Developed%20%26%20Maintained%20by-CaptainEXE-00FFFF?style=for-the-badge&labelColor=0e1117&logo=reactivex&logoColor=white)](https://thecaptainexe.vercel.app/)
+[![Developed & Maintained by CaptainEXE](https://img.shields.io/badge/Developed%20%26%20Maintained%20by-CaptainEXE-00FFFF?style=for-the-badge&labelColor=0e1117&logo=reactivex&logoColor=white)](https://thecaptainexe.vercel.app)
 ---
 # TypeEXE
 
-A clean, responsive, and minimal typing test built with vanilla HTML, CSS, and JavaScript. Designed for speed, precision, and an aesthetic typing experience inspired by modern color palettes.
+Sebuah tes mengetik yang bersih, responsif, dan minimal yang dibuat dengan HTML, CSS, dan JavaScript murni. Dirancang untuk kecepatan, ketepatan, dan pengalaman mengetik yang estetis, terinspirasi dari palet warna modern.
 
 ![License](https://img.shields.io/badge/license-MIT-purple.svg)
 ![Tech Stack](https://img.shields.io/badge/tech-HTML5%20%7C%20CSS3%20%7C%20JS-blue.svg)
 
-## 🌐 Quick Links
+## 🌐 Tautan Cepat
 
-- **Live Demo (GitHub Pages):** [https://thecaptainexe.github.io/Type-EXE/](https://thecaptainexe.github.io/Type-EXE/)
-- **Latest Version / Downloads:** Get stable releases and update history on the [Versions Page](https://github.com/thecaptainexe/Type-EXE/releases).
+- **Demo Langsung (GitHub Pages):** [https://thecaptainexe.github.io/Type-EXE/](https://thecaptainexe.github.io/Type-EXE/)
+- **Versi Terbaru / Unduhan:** Dapatkan rilis stabil dan riwayat pembaruan di [Halaman Versi](https://github.com/thecaptainexe/Type-EXE/releases).
 
-## ✨ Features
+## ✨ Fitur
 
-- **Multiple Test Modes:**
-  - **Time:** Test your speed against fixed time limits (5s, 15s, 30s).
-  - **Quote:** Type randomly selected short quotes.
-  - **Zen:** Infinite typing mode without time pressure. Press `` ` `` anytime to finish and view stats.
-- **Dynamic Caret Fitting:** Caret size and position dynamically adjust to match exact letter line-heights and font sizes across devices.
-- **Real-Time WPM Analytics:** Visual WPM speed graph generated via **Chart.js** after every test run, including Zen and Quote modes.
-- **Catppuccin Color Themes:** Built-in theme selector featuring `Mocha`, `Macchiato`, `Frappé`, and `Latte`.
-- **Full Screen Lockdown:** Responsive, scrollbar-free layout optimized for both mobile and desktop screens.
-- **Modifiers:** Toggle numbers and punctuation for extra typing challenges.
+- **Beberapa Mode Tes:**
+  - **Waktu:** Uji kecepatan Anda dengan batas waktu tetap (5s, 15s, 30s).
+  - **Kutipan:** Ketik kutipan pendek yang dipilih secara acak.
+  - **Zen:** Mode mengetik tanpa batas waktu dan tanpa tekanan. Tekan `` ` `` kapan saja untuk menyelesaikan dan melihat statistik.
+- **Penyesuaian Kursor Dinamis:** Ukuran dan posisi kursor menyesuaikan secara dinamis agar sesuai dengan tinggi baris huruf dan ukuran font pada berbagai perangkat.
+- **Analitik KPM Waktu Nyata:** Grafik kecepatan KPM (kata per menit) yang dihasilkan menggunakan **Chart.js** setelah setiap tes, termasuk mode Zen dan Kutipan.
+- **Tema Warna Catppuccin:** Pemilih tema bawaan yang menampilkan `Mocha`, `Macchiato`, `Frappé`, dan `Latte`.
+- **Tata Letak Layar Penuh:** Tata letak responsif tanpa scrollbar yang dioptimalkan untuk layar seluler dan desktop.
+- **Modifikator:** Aktifkan angka dan tanda baca untuk tantangan mengetik tambahan.
 
-## 🛠️ Tech Stack
+## 🛠️ Tumpukan Teknologi
 
-- **Frontend:** Vanilla HTML5, CSS3, JavaScript (ES6+)
-- **Charts:** [Chart.js](https://www.chartjs.org/)
-- **Typography:** [Fira Code](https://fonts.google.com/specimen/Fira+Code) via Google Fonts
+- **Frontend:** HTML5 murni, CSS3, JavaScript (ES6+)
+- **Grafik:** [Chart.js](https://www.chartjs.org/)
+- **Tipografi:** [Fira Code](https://fonts.google.com/specimen/Fira+Code) via Google Fonts
 
-## 🚀 Getting Started
+## 🚀 Memulai
 
-### Option 1: Web Version (GitHub Pages)
-Play instantly in your browser without downloading anything by visiting the [GitHub Pages Deployment](https://thecaptainexe.github.io/Type-EXE/).
+### Opsi 1: Versi Web (GitHub Pages)
+Mainkan langsung di peramban Anda tanpa mengunduh apa pun dengan mengunjungi [Deployment GitHub Pages](https://thecaptainexe.github.io/Type-EXE/).
 
-### Option 2: Download the Latest Version
-To grab a standalone zip of the latest tagged version, head over to the [Releases / Versions Page](https://github.com/thecaptainexe/Type-EXE/releases) and download the latest asset package.
+### Opsi 2: Unduh Versi Terbaru
+Untuk mendapatkan berkas zip versi terbaru yang diberi tag, kunjungi [Halaman Rilis / Versi](https://github.com/thecaptainexe/Type-EXE/releases) dan unduh paket aset terbaru.
 
-### Option 3: Clone the Repository
-Clone the repository locally to edit or host it yourself:
+### Opsi 3: Clone Repositori
+Clone repositori secara lokal untuk mengedit atau menghosting sendiri:
 
-1. Clone the repository:
+1. Clone repositori:
    ```bash
-   git clone [https://github.com/thecaptainexe/Type-EXE.git](https://github.com/thecaptainexe/Type-EXE.git)
+   git clone https://github.com/thecaptainexe/Type-EXE.git
    ```
-2. Navigate to the project directory:
+2. Masuk ke direktori proyek:
    ```bash
    cd Type-EXE
    ```
-3. Open `index.html` in your favorite web browser.
+3. Buka `index.html` di peramban web pilihan Anda.
 
-## 🎨 Theme Customization
+## 🎨 Kustomisasi Tema
 
-Themes are controlled via CSS custom properties in `style.css`. You can add new color palettes by defining new CSS rules on the `body` element:
+Tema dikendalikan melalui properti kustom CSS di `style.css`. Anda dapat menambahkan palet warna baru dengan mendefinisikan aturan CSS baru pada elemen `body`:
 
 ```css
 body.theme-custom {
@@ -67,12 +67,12 @@ body.theme-custom {
 }
 ```
 
-## 📄 License
+## 📄 Lisensi
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Didistribusikan di bawah Lisensi MIT. Lihat `LICENSE` untuk informasi lebih lanjut.
 
 ---
 
 <p align="center">
-  Developed by <a href="https://thecaptainexe.vercel.app">CaptainEXE</a>
+  Dikembangkan oleh <a href="https://thecaptainexe.vercel.app">CaptainEXE</a>
 </p>

@@ -2,23 +2,14 @@
 // 1. DATA & CONFIGURATION
 // ==========================================
 const commonWords = [
-    "the", "be", "of", "and", "a", "to", "in", "he", "have", "it", "that", "for", "they", "I", "with", 
-    "as", "not", "on", "she", "at", "by", "this", "we", "you", "do", "but", "from", "or", "which", "one", 
-    "would", "all", "will", "there", "say", "who", "make", "when", "can", "more", "if", "no", "man", "out", 
-    "other", "so", "what", "time", "up", "go", "about", "than", "into", "could", "state", "only", "new", 
-    "year", "some", "take", "come", "these", "know", "see", "use", "get", "like", "then", "first", "any", 
-    "work", "now", "may", "such", "give", "over", "think", "most", "even", "find", "day", "also", "after", 
-    "way", "many", "must", "look", "before", "great", "back", "through", "long", "where", "much", "should", 
-    "well", "people", "down", "own", "just", "because", "good", "each", "those", "feel", "seem", "how", 
-    "high", "too", "place", "little", "world", "very", "still", "nation", "hand", "old", "life", "tell", 
-    "write", "become", "here", "show", "house", "both", "between", "need", "mean", "call", "develop", "under", "last", "right"
+    "yang","adalah","dari","dan","sebuah","untuk","di","ia","memiliki","itu","bahwa","mereka","saya","dengan","sebagai","tidak","pada","oleh","ini","kami","Anda","melakukan","tetapi","atau","lain","akan","ada","kata","waktu","lebih","jika","tidak","orang","keluar","lainnya","jadi","apa","hari","sekarang","mungkin","seperti","melihat","menggunakan","mendapat","suka","kemudian","pertama","apa saja","bekerja","harus","mencari","lama","banyak","harusnya","lihat","sebelum","besar","kembali","melalui","panjang","di mana","sangat","masih","tinggi","tempat","kecil","dunia","baik","setiap","merasa","tampak","bagaimana","tinggi","terlalu","hidup","beri","akhir","rumah","antara","membutuhkan","berarti","panggil","kembangkan","di bawah","terakhir","kanan","jalan","menemukan","hari","juga","setelah","cara","banyak","harusnya","orang-orang","turun","milik","hanya","karena","baik","setiap","mereka","rasakan","tampak"
 ];
 
 const quotes = [
-    "The only way to do great work is to love what you do.",
-    "Talk is cheap. Show me the code.",
-    "Programs must be written for people to read, and only incidentally for machines to execute.",
-    "Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live."
+    "Satu-satunya cara untuk melakukan pekerjaan hebat adalah mencintai apa yang Anda lakukan.",
+    "Bicara itu murah. Tunjukkan kode Anda.",
+    "Program harus ditulis agar dapat dibaca oleh manusia, dan hanya kebetulan bagi mesin untuk mengeksekusinya.",
+    "Selalu menulis kode seolah-olah orang yang nantinya memelihara kode Anda adalah seorang psikopat keras yang tahu di mana Anda tinggal."
 ];
 
 let config = {
@@ -101,7 +92,7 @@ function renderWords() {
         const firstWord = document.createElement('div');
         firstWord.className = 'word';
         wordsContainer.appendChild(firstWord);
-        timerDisplay.textContent = 'zen (type ` to finish)';
+        timerDisplay.textContent = 'Zen (ketik ` untuk menyelesaikan)';
         return;
     }
 
@@ -292,7 +283,7 @@ function startTest() {
                 return;
             }
         } else if (config.mode === 'zen') {
-            timerDisplay.textContent = `zen (${elapsedSeconds}s - type \` to finish)`;
+            timerDisplay.textContent = `Zen (${elapsedSeconds}s - ketik \` untuk menyelesaikan)`;
         }
 
         // Sample WPM every second for all modes (used for Graph)
@@ -333,7 +324,7 @@ function resetTest() {
     wordsContainer.style.transform = 'translateY(0)';
     resultsScreen.classList.add('hidden');
     
-    timerDisplay.textContent = config.mode === 'time' ? config.time : (config.mode === 'quote' ? 'quote' : 'zen (type ` to finish)');
+    timerDisplay.textContent = config.mode === 'time' ? config.time : (config.mode === 'quote' ? 'Kutipan' : 'Zen (ketik ` untuk menyelesaikan)');
     
     generateWords();
     renderWords();
@@ -384,7 +375,7 @@ function renderChart() {
         data: {
             labels: chartLabels,
             datasets: [{
-                label: 'WPM',
+                label: 'KPM',
                 data: chartData,
                 borderColor: mainColor,
                 backgroundColor: mainColor + '20',
