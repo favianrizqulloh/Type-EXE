@@ -1,11 +1,11 @@
-[![Developed & Maintained by CaptainEXE](https://img.shields.io/badge/Developed%20%26%20Maintained%20by-CaptainEXE-00FFFF?style=for-the-badge&labelColor=0e1117&logo=reactivex&logoColor=white)](https://thecaptainexe.vercel.app)
+[![Dikembangkan & Dipelihara oleh CaptainEXE](https://img.shields.io/badge/Developed%20%26%20Maintained%20by-CaptainEXE-00FFFF?style=for-the-badge&labelColor=0e1117&logo=reactivex&logoColor=white)](https://thecaptainexe.vercel.app)
 ---
 # TypeEXE
 
 Sebuah tes mengetik yang bersih, responsif, dan minimal yang dibuat dengan HTML, CSS, dan JavaScript murni. Dirancang untuk kecepatan, ketepatan, dan pengalaman mengetik yang estetis, terinspirasi dari palet warna modern.
 
-![License](https://img.shields.io/badge/license-MIT-purple.svg)
-![Tech Stack](https://img.shields.io/badge/tech-HTML5%20%7C%20CSS3%20%7C%20JS-blue.svg)
+![Lisensi](https://img.shields.io/badge/license-MIT-purple.svg)
+![Tumpukan Teknologi](https://img.shields.io/badge/tech-HTML5%20%7C%20CSS3%20%7C%20JS-blue.svg)
 
 ## 🌐 Tautan Cepat
 
@@ -20,7 +20,7 @@ Sebuah tes mengetik yang bersih, responsif, dan minimal yang dibuat dengan HTML,
   - **Zen:** Mode mengetik tanpa batas waktu dan tanpa tekanan. Tekan `` ` `` kapan saja untuk menyelesaikan dan melihat statistik.
 - **Penyesuaian Kursor Dinamis:** Ukuran dan posisi kursor menyesuaikan secara dinamis agar sesuai dengan tinggi baris huruf dan ukuran font pada berbagai perangkat.
 - **Analitik KPM Waktu Nyata:** Grafik kecepatan KPM (kata per menit) yang dihasilkan menggunakan **Chart.js** setelah setiap tes, termasuk mode Zen dan Kutipan.
-- **Tema Warna Catppuccin:** Pemilih tema bawaan yang menampilkan `Mocha`, `Macchiato`, `Frappé`, dan `Latte`.
+- **Tema Warna Catppuccin:** Pemilih tema bawaan (Mocha — Gelap, Macchiato — Kontras, Frappé — Sejuk, Latte — Terang).
 - **Tata Letak Layar Penuh:** Tata letak responsif tanpa scrollbar yang dioptimalkan untuk layar seluler dan desktop.
 - **Modifikator:** Aktifkan angka dan tanda baca untuk tantangan mengetik tambahan.
 
