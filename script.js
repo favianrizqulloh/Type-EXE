@@ -92,7 +92,7 @@ function renderWords() {
         const firstWord = document.createElement('div');
         firstWord.className = 'word';
         wordsContainer.appendChild(firstWord);
-        timerDisplay.textContent = 'Zen (ketik ` untuk menyelesaikan)';
+        timerDisplay.textContent = 'Zen — Mode tanpa batas. Ketik ` untuk menyelesaikan.';
         return;
     }
 
@@ -283,10 +283,10 @@ function startTest() {
                 return;
             }
         } else if (config.mode === 'zen') {
-            timerDisplay.textContent = `Zen (${elapsedSeconds} detik - ketik \` untuk menyelesaikan)`;
+            timerDisplay.textContent = `Zen — ${elapsedSeconds} detik — ketik \` untuk menyelesaikan`;
         }
 
-        // Sample WPM every second for all modes (used for Graph)
+        // Sample KPM setiap detik untuk semua mode (digunakan untuk grafik)
         const currentWpm = Math.round((correctKeystrokes / 5) / (elapsedSeconds / 60)) || 0;
         wpmHistory.push({ time: elapsedSeconds, wpm: currentWpm });
     }, 1000);
@@ -324,7 +324,7 @@ function resetTest() {
     wordsContainer.style.transform = 'translateY(0)';
     resultsScreen.classList.add('hidden');
     
-    timerDisplay.textContent = config.mode === 'time' ? config.time : (config.mode === 'quote' ? 'Kutipan' : 'Zen (ketik ` untuk menyelesaikan)');
+    timerDisplay.textContent = config.mode === 'time' ? config.time : (config.mode === 'quote' ? 'Kutipan' : 'Zen — Mode tanpa batas. Ketik ` untuk menyelesaikan.');
     
     generateWords();
     renderWords();
@@ -375,7 +375,7 @@ function renderChart() {
         data: {
             labels: chartLabels,
             datasets: [{
-                label: 'KPM',
+                label: 'Kecepatan (KPM)',
                 data: chartData,
                 borderColor: mainColor,
                 backgroundColor: mainColor + '20',

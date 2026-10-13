@@ -2,7 +2,7 @@
 ---
 # TypeEXE
 
-Sebuah tes mengetik yang bersih, responsif, dan minimal yang dibuat dengan HTML, CSS, dan JavaScript murni. Dirancang untuk kecepatan, ketepatan, dan pengalaman mengetik yang estetis, terinspirasi dari palet warna modern.
+TypeEXE — Aplikasi tes mengetik minimal, cepat, dan dapat disesuaikan. Dibangun dengan HTML5, CSS3, Chart.js, serta tema warna Catppuccin untuk pengalaman mengetik yang bersih dan modern.
 
 ![Lisensi](https://img.shields.io/badge/license-MIT-purple.svg)
 ![Tumpukan Teknologi](https://img.shields.io/badge/tech-HTML5%20%7C%20CSS3%20%7C%20JS-blue.svg)
@@ -12,17 +12,17 @@ Sebuah tes mengetik yang bersih, responsif, dan minimal yang dibuat dengan HTML,
 - **Demo Langsung (GitHub Pages):** [https://thecaptainexe.github.io/Type-EXE/](https://thecaptainexe.github.io/Type-EXE/)
 - **Versi Terbaru / Unduhan:** Dapatkan rilis stabil dan riwayat pembaruan di [Halaman Versi](https://github.com/thecaptainexe/Type-EXE/releases).
 
-## ✨ Fitur
+## ✨ Fitur Utama
 
-- **Beberapa Mode Tes:**
+- **Mode Tes:**
   - **Waktu:** Uji kecepatan Anda dengan batas waktu tetap (5s, 15s, 30s).
   - **Kutipan:** Ketik kutipan pendek yang dipilih secara acak.
-  - **Zen:** Mode mengetik tanpa batas waktu dan tanpa tekanan. Tekan `` ` `` kapan saja untuk menyelesaikan dan melihat statistik.
-- **Penyesuaian Kursor Dinamis:** Ukuran dan posisi kursor menyesuaikan secara dinamis agar sesuai dengan tinggi baris huruf dan ukuran font pada berbagai perangkat.
-- **Analitik KPM Waktu Nyata:** Grafik kecepatan KPM (kata per menit) yang dihasilkan menggunakan **Chart.js** setelah setiap tes, termasuk mode Zen dan Kutipan.
+  - **Zen:** Mode tanpa batas dan tanpa gangguan. Tekan `` ` `` kapan saja untuk menyelesaikan dan melihat statistik.
+- **Penyesuaian Kursor Presisi:** Kursor menyesuaikan ukuran dan posisi untuk akurasi visual lintas perangkat.
+- **Analitik Kecepatan Waktu Nyata:** Grafik kecepatan (KPM) yang dihasilkan menggunakan **Chart.js** setelah setiap tes.
 - **Tema Warna Catppuccin:** Pemilih tema bawaan (Mocha — Gelap, Macchiato — Kontras, Frappé — Sejuk, Latte — Terang).
-- **Tata Letak Layar Penuh:** Tata letak responsif tanpa scrollbar yang dioptimalkan untuk layar seluler dan desktop.
-- **Modifikator:** Aktifkan angka dan tanda baca untuk tantangan mengetik tambahan.
+- **Antarmuka Layar Penuh:** Tata letak responsif tanpa scrollbar yang dioptimalkan untuk perangkat seluler dan desktop.
+- **Opsi Modifikasi:** Aktifkan angka dan tanda baca untuk tantangan tambahan.
 
 ## 🛠️ Tumpukan Teknologi
 
