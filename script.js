@@ -283,7 +283,7 @@ function startTest() {
                 return;
             }
         } else if (config.mode === 'zen') {
-            timerDisplay.textContent = `Zen (${elapsedSeconds}s - ketik \` untuk menyelesaikan)`;
+            timerDisplay.textContent = `Zen (${elapsedSeconds} detik - ketik \` untuk menyelesaikan)`;
         }
 
         // Sample WPM every second for all modes (used for Graph)
@@ -367,7 +367,7 @@ function renderChart() {
     const subColor = getComputedStyle(document.body).getPropertyValue('--sub').trim();
 
     // Ensure fallback data point if test was under 1 second
-    const chartLabels = wpmHistory.length > 0 ? wpmHistory.map(d => d.time + 's') : ['0s'];
+    const chartLabels = wpmHistory.length > 0 ? wpmHistory.map(d => d.time + ' detik') : ['0 detik'];
     const chartData = wpmHistory.length > 0 ? wpmHistory.map(d => d.wpm) : [0];
 
     chartInstance = new Chart(ctx, {
