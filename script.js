@@ -277,7 +277,7 @@ function startTest() {
 
         if (config.mode === 'time') {
             timeRemaining--;
-            timerDisplay.textContent = `${timeRemaining} detik`;
+            timerDisplay.textContent = timeRemaining;
             if (timeRemaining <= 0) {
                 endTest();
                 return;
@@ -324,7 +324,7 @@ function resetTest() {
     wordsContainer.style.transform = 'translateY(0)';
     resultsScreen.classList.add('hidden');
     
-    timerDisplay.textContent = config.mode === 'time' ? `${config.time} detik` : (config.mode === 'quote' ? 'Kutipan — Ketik sampai akhir kutipan' : 'Zen — Mode tanpa batas. Ketik ` untuk menyelesaikan.');
+    timerDisplay.textContent = config.mode === 'time' ? config.time : (config.mode === 'quote' ? 'Mode Kutipan' : 'Zen — Mode tanpa batas. Ketik ` untuk menyelesaikan.');
     
     generateWords();
     renderWords();
